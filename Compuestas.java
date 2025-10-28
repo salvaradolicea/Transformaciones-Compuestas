@@ -60,5 +60,46 @@ public class Compuestas {
         };
         return x;
     }
+    //Metodo que regresa la matriz de rotacion basada en el origen de las coordenadas
+    public static double[][] R(double angulo){
+        double radianes = gradosARadianes(angulo);//Convertir grados a radianes
+        double cos = Math.cos(radianes);//Calcular coseno y seno
+        double sin = Math.sin(radianes);
+
+        double [][] x = {
+            {cos, - sin, 0},
+            {sin, cos, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //Metodo que regresa la matriz de rotacion basada en un punto de rotacion
+    public static double[][] R(double angulo, double px, double py){
+        double radianes = gradosARadianes(angulo);
+        double cos = Math.cos(radianes);
+        double sin = Math.sin(radianes);
+
+        double [][] x = {
+            {cos, - sin, px * (1 - cos) + py * sin},
+            {sin, cos, py * (1 - cos) - px * sin},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //Metodo que regresa la matriz de rotacion inversa basada en el origen de las coordenadas
+    public static double[][] Rinv(double angulo){
+        double radianes = gradosARadianes(angulo);
+        double cos = Math.cos(radianes);
+        double sin = Math.sin(radianes);
+
+        double [][] x = {
+            {cos, sin, 0},
+            {-sin, cos, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
 
 }
