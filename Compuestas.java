@@ -102,4 +102,39 @@ public class Compuestas {
         return x;
     }
 
+    //metodo que recibe los arreglos que contienen las coordenadas de los puntos
+    // y regresa la matriz de puntos homogenea
+    public static  double [][] matrizPuntos(double x[], double y[]){
+        //Verificar que los arreglos tengan la misma longitud
+        if(x.length != y.length){
+            throw new IllegalArgumentException("Los arreglos deben tener la misma longitud");
+        }
+        int n = x.length;
+        double [][] puntos = new double[3][n];
+        for(int i = 0; i < n; i++){
+            puntos[0][i] = x[i];
+            puntos[1][i] = y[i];
+            puntos[2][i] = 1;
+        }   
+        return puntos;
+
+    }
+
+    //Metodo que aplica una matriz de transformacion a una matriz de puntos
+    public double [][] transformaPuntos(double [][]m, double [][] p){
+        return multiplicarMatrices(m, p);
+    }
+
+    //Metodo qeu recibe la matriz de puntos homogenea y el renglon de las 
+    //coordenadas que se desea obtener (0 para x, 1 para y)
+    //Regrega un arreglo con las coordenadas bien sea de x
+    //o de y y el cual se utlizara para graficar
+    public int[] actualizarPuntos(double[][] puntos, int coord){
+        int n = puntos[0].length;
+        int[] resultado = new int[n];
+        for(int i = 0; i < n; i++){
+            resultado[i] = (int)Math.round(puntos[coord][i]);
+        }
+        return resultado;
+    }
 }
