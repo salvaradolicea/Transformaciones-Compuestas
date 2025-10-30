@@ -139,4 +139,111 @@ public class Compuestas {
     }
 
     //Metodos terminados
+    
+
+    //Metodos necesarios para hacer la reflexion del objeto
+    //en sus distintos enfoques, asi como la inclinacion
+    //(Corte, recorte o sesgo) de un objeto bidimensional
+    
+    //Reflexion respecto al eje x
+    //invierte los valores de Y
+    public double [][] refX(){
+        double [][] x = {
+            {1, 0, 0},
+            {0, -1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //reflexion respecto al eje y
+    //invierte los valores de x
+    public double [][] refY(){
+        double [][] x = {
+            {-1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //reflexion respecto al origen de coordenadas
+    //Refleja ambos valores
+    public double [][] refOrigen(){
+        double [][] x = {
+            {-1, 0, 0},
+            {0, -1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }   
+
+    //Reflejar respecto a la recta y = x
+    //Intercambia los valores de x y y
+    public double [][] refYigualX(){
+        double [][] x = {
+            {0, 1, 0},
+            {1, 0, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }   
+
+    //rEFLEJAR RESPECTO A LA RECTA Y = -X
+    //Intecambia los valores de x y y, ademas de cambiar el signo
+    public double [][] refYIgualMenosX(){
+        double [][] x = {
+            {0, -1, 0},
+            {-1, 0, 0},
+            {0, 0, 1}
+        };
+        return x;   
+    }
+
+    //METODOS DE INCLINACION
+
+    //Inclinacion respecto al eje x
+    //iNclina el objeto horizontalmente, es decir sobre el eje x
+    public static double [][] CX(double SHx){
+        double [][] x = {
+            {1, SHx, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //Inclinacion respecto a la linea Y = Yref
+    //Igual que el anterior pero traladando el objeto para que la inclinacion
+    //se haga con respecto a la linea Y = Yref
+    public double [][] CXLinea(double Yref, double SHx){
+        double [][] x = {
+            {1, SHx, -SHx * Yref},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
+    //inclinacion con respecto al eje y
+    //Inclina el objeto verticalmente
+    public double [][] CY(double SHy){
+        double [][] x = {
+            {1, 0, 0},
+            {SHy, 1, 0},
+            {0, 0, 1}
+        };
+        return x;
+    }   
+    //Inclinacion con respecto a la linea x = xref
+    //Lo mism que el anterior pero trasladando el objeto
+    public double [][] CYLinea(double Xref, double SHy){
+        double [][] x = {
+            {1, 0, 0},
+            {SHy, 1, -SHy * Xref},
+            {0, 0, 1}
+        };
+        return x;
+    }
+
 }
