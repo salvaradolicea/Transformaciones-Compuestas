@@ -50,6 +50,13 @@ public class Compuestas {
         };
         return x;
     }
+    public static double[][] S(double xf, double yf, double sx, double sy){
+    double[][] trasladar = T(-xf, -yf);
+    double[][] escalar = S(sx, sy);
+    double[][] regresar = T(xf, yf);
+    return multiplicarMatrices(regresar, multiplicarMatrices(escalar, trasladar));
+}
+
     //Metodo que regresa la matriz de escalacion inversa basada en el origen de las coordenadas
     public static double[][] Sinv(double sx, double sy){
         double [][] x = {
