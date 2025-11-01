@@ -1,7 +1,9 @@
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PruebaFinal6 extends JFrame {
+
     public PruebaFinal6() {
         setTitle("Transformaciones con matriz Compuesta");
         setSize(800, 600);
@@ -17,6 +19,7 @@ public class PruebaFinal6 extends JFrame {
 }
 
 class PanelCompuesto extends JPanel {
+
     private Compuestas comp = new Compuestas();
 
     //Coordenadas originales de un triángulo
@@ -43,14 +46,14 @@ class PanelCompuesto extends JPanel {
         //Crear matriz compuesta
         //El orden de multiplicación importa 
         matrizCompuesta = comp.multiplicarMatrices(
-            CX,
-            comp.multiplicarMatrices(
-                Ref,
+                CX,
                 comp.multiplicarMatrices(
-                    S,
-                    comp.multiplicarMatrices(R, T)
+                        Ref,
+                        comp.multiplicarMatrices(
+                                S,
+                                comp.multiplicarMatrices(R, T)
+                        )
                 )
-            )
         );
 
         //Crear matriz de puntos y aplicar transformación 
